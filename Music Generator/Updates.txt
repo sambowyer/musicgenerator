@@ -1,0 +1,96 @@
+TESTS 1-3 (LOST DUE TO AN ERROR IN FILE IO)
+all starting at same time bc didnt update time variable
+melody too high (72-96 --> 60-85)
+
+TESTS 4-6 (and other temporary tests that were deleted):
+octave problems (fixed by changing the octaves used)
+
+chords too low - sometimes (tonicTone: 36 --> 48)
+too many chromatic notes (added weight to chrom: 7-->5)
+too jazzy? (jazziness: 0.5 --> 0.3)
+too slow? (bpm: 60-120 --> 80-120)
+harmonic note weights not being added to all octaves (fixed)
+
+melody too disjunct (fixed)
+allow for input of:
+tempo - added, but not safe from wrong data type
+jazziness - added, but not safe from wrong data type
+
+create UI (fixed)
+add functionality to view previous tracks
+
+streamline use of imported modules - only import essential objects/functions
+allow for alternative keys (fixed)
+allow for input of:
+key - added, should be safe from wrong data type
+
+TEST7.mid -- chords too high? (put down an octave)
+
+error handling for input of:
+	tempo
+	jazziness
+
+add input of custom filename for midi file(fixed)
+
+TEST16.mid -- 8th test was named TEST16.mid because of an encoding error in history.txt
+
+add rests to melodyOptions
+corrected chordTones to add all possible chord tones for keys other than C
+fix error where lastNote takes None value on high keys: (fixed)
+- toneOptions not updating properly (harmonicOptions not a copy but a reference of toneOptions)
+- when toneOptions updated to previous diatonic/harmonic snapshots, references made not copies
+'rest' melody option messing up added weights of conjunct tones (fixed) - lastTone is now defined at end of creation of previous tone not during the current tone's creation
+
+TEST16.mid -- 9th test was also named TEST16.mid, due to another encoding error - now ANSI encoded, should be fine
+
+TEST9.mid -- because the 7th test was overwritten by the 8th, this is called the TEST9.mid, will update history.txt to fix this
+	  -- however, this file name shows that the history.txt encoding error has been fixed
+	  -- however, this files history.txt entry was not entered on a new line. This has been fixed with an '\n' in the entry code
+
+TEST11.mid -- ###################### NOT TOO BAD!! ########################
+	   -- history.txt entry for TEST 9 was only wrong because i deleted the empty bottom line, so the additional '\n' from the last test has been removed
+	   -- melody still vastly overflowing chords
+
+stop melody vastly overflowing chords (NOT fixed - now using melodyRhythm values instead of choosing another random value (not sure why i did that)
+-this seems to happen when melody's overflow is larger than the duration of the next chord
+-can be fixed by deleting duration options for the melody that are going to overflow for longer than the next chord lasts (similarly to how createRhythm deals with no overflows)
+-still not completely fixed (although change to createRhythm was useful)
+
+TEST12.mid -- meh
+stop melody vastly overflowing chords (NOT fixed):
+-overflow (in melody creation) sometimes taking negative values
+-line 'overflow = sum(melodyRhythm) - chord.duration' should be 'overflow = sum(melodyRhythm) - (chord.duration - overflow)'
+-should be fixed
+
+TEST13.mid -- bad, but shows random aspect well with some interesting (awful) note choices (particularly @ 0:08)
+	   -- overflow errors seem to be fixed (could be random but hopefully not, will test again)
+	   -- no negative overflows anywhere in melody and no extra notes past the end of the last chord
+
+TEST14.mid -- overflow errors are almost definitely gone
+	   -- no negative overflows anywhere in melody and no extra notes past the end of the last chord
+
+option 3 on menu screen doesn't work:
+- isRunning == False causing the problem (instead of isRunning = false) (fixed)
+
+
+
+##################################### TODO #####################################
+
+
+
+################################################################################
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+################################# TODO FOR 2.0 #################################
+
+allow for input of:
+???instrument???? --> would need to add instrument info to Note() class
+decide if chord progression repeat no. should be input or stay at 4
+test whether disabling overflow on each chord improves song (hopefully fewer clashes at start of each chord):
+- could have input based on overflow on/off as extraHomophonic = False/True ???????????????
+
+################################################################################
