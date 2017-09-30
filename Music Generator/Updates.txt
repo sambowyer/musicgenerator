@@ -72,7 +72,12 @@ TEST14.mid -- overflow errors are almost definitely gone
 option 3 on menu screen doesn't work:
 - isRunning == False causing the problem (instead of isRunning = false) (fixed)
 
+Finalised output location for end of testing (now songs go in folder called Songs not GeneratorTests)
+Variables/comments in code suitably adjusted for this ^^
 
+Added shuffle of rhythms
+decreased velocity of chord notes (80-90 --> 70-80)
+changed weights of all durations (made them longer on average)
 
 ##################################### TODO #####################################
 

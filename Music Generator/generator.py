@@ -7,7 +7,7 @@
 # Created:      19/04/2017
 #--------------------------------------------------------------------------------------
 
-from midiutil.MidiFile import MIDIFile
+from MidiFile import MIDIFile
 from datetime import datetime
 import random, os, pickle
 
@@ -67,8 +67,9 @@ def createRhythm(durations, length, overflowLimit=0):
         durationValue = choose(durationOptions)
         rhythm.append(durationValue)
         beatsLeft -= durationValue
-
-    return rhythm
+    
+    random.shuffle(rhythm)  #shuffle the rhythms (randomize order)
+    return rhythm   
 
 #Chord Class for storing info of chords in chord progression
 class Chord():
@@ -187,7 +188,7 @@ Or leave blank for all random/preset values:
         #CHORDS
         chordProgression = []
 
-        chordDurations = [[1.0, 20], [2.0, 25], [4.0, 15]]   #[duration (in beats), probability (arbitrary relative units)]
+        chordDurations = [[1.0, 12], [2.0, 20], [4.0, 12]]   #[duration (in beats), probability (arbitrary relative units)]
 
         chordFunctionOptions = [[T, 10], [D, 10], [S, 10]]
 
@@ -200,12 +201,12 @@ Or leave blank for all random/preset values:
                 except ValueError:
                     pass
         else:
-            jazziness = 0.3
+            jazziness = 0.45
 
         chordSizeOptions = [[3,None],[4,None],[5,None],[6,None],[7,None]]
         #how many notes in the chord (3-triad, 4-7th, 5-9th)
         #to incorporate jazziness, create exponential function to multiply
-        #each weighting by, changing the minimum/maximum of curve for different values for no. of notes
+        #each weighting by changing the minimum/maximum of curve for different values for no. of notes
         for i in chordSizeOptions:
             i[1] = (0.5+jazziness)**i[0]
 
@@ -225,20 +226,20 @@ Or leave blank for all random/preset values:
 
             chordProgression.append(Chord(chordTones, i, currentChordFunction)) #Add Chord object to list chordProgression
 
-        repeats = 4                     #could be an input in a future version, but no need for this currently
+        repeats = 2                     #could be an input in a future version, but no need for this currently
         chordProgression *= repeats     #repeat the chord in chordProgression for **repeats** amount of times
 
         #add chordProgression info to the midi file
         time = 0    #time since start
         for chord in chordProgression:
             for note in chord.notes:
-                midi.addNote(chordTrack.trackNo, chordTrack.channelNo, note, time, chord.duration, random.randint(80, 90))  #add each note of the current chord to the midi file
+                midi.addNote(chordTrack.trackNo, chordTrack.channelNo, note, time, chord.duration, random.randint(70,80))  #add each note of the current chord to the midi file
             time += chord.duration                                                                 #^^^ volume is made random to humanize the sounds
 
         #Melody
         melody = []
 
-        melodyDurations = [[0.125,10],[0.25,30],[0.5,30],[1.0,25],[2.0,5], [3.0, 5]]
+        melodyDurations = [[0.125,3],[0.25,20],[0.5,30],[1.0,25],[2.0,15], [3.0, 5]]
 
         toneOptions = [[i, 0] for i in range(tonicTone+60, tonicTone+85)]
         #2 octaves of chromatic scale - will add a constant amount of weight to diatonic tones
@@ -324,12 +325,12 @@ Or leave blank for all random/preset values:
             time += note.duration                                                                    #^^^ volume is made random to humanize the sounds
 
         #export the midi file
-        testNo = 0
+        songNo = 0
         with open("history.txt","r") as f:
-            testNo = len(f.readlines())  #find out what number test this is
+            songNo = len(f.readlines())  #find out what number song this is
 
 
-        fileName = "Test%s.mid" % (testNo+1)
+        fileName = "Song%s.mid" % (songNo+1)
 
         illegalCharacters = ('\\', '/', ':', '*', '?', '"', '<', '>', '|')  #characters not allowed by Windows'/MacOS's file system (NTFS)
         safeCustomFileName = False
@@ -350,13 +351,14 @@ Or leave blank for all random/preset values:
             fileName = customFileName
 
         d = datetime.now()
-        newSong = Song(fileName, "%s/%s/%s  %s:%s:%s" % (d.day, d.month, d.year, d.hour, d.minute, d.second), tempo, key, jazziness)
+        newSong = Song(fileName, "%s/%s/%s  %s:%s:%s" % (str(d.day).zfill(2), str(d.month).zfill(2), d.year, str(d.hour).zfill(2), str(d.minute).zfill(2), str(d.second).zfill(2)), tempo, key, jazziness)
+                                                                  #.zfill(x) adds leading zeroes so the string is always x digits long
 
-        with open("GeneratorTests\\"+fileName, "wb") as f:    #name the output midi file, including the test number in the file name
+        with open("Songs\\"+fileName, "wb") as f:    #name the output midi file, including the song number in the file name
             midi.writeFile(f) #finally write the output midi file
 
         with open("history.txt","a") as f:  #open as "a" -- append. So that previous records are not destroyed
-            f.write(newSong.display(True))  #add one to the testNo text file so the next midi file can be named with a test number that is one larger than the one just created
+            f.write(newSong.display(True))  #add one to the songNo text file so the next midi file can be named with a song number that is one larger than the one just created
 
         history = []
         with open("pickledHistory.pkl", "rb") as f:
@@ -381,7 +383,7 @@ Or leave blank for all random/preset values:
 
         if playback == "y":
             print("Playing %s..." % newSong.fileName)
-            os.startfile("GeneratorTests\\"+fileName)
+            os.startfile("Songs\\"+fileName)
 
     if menuOption == "2":
 
@@ -409,7 +411,7 @@ Or leave blank for all random/preset values:
             if songNo != 0:
                 chosenSong = history[songNo-1]
                 print("Playing %s..." % chosenSong.fileName)
-                os.startfile("GeneratorTests\\"+chosenSong.fileName)
+                os.startfile("Songs\\"+chosenSong.fileName)
 
                 while playback not in ("y","n"):
                     playback = input("\nPlay another piece? (y/n): ").lower()

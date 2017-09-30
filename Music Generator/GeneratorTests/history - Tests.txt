@@ -1,0 +1,15 @@
+1 - Lost
+2 - Lost
+3 - Lost
+File name: Test4.mid      Created: 26/8/2017  19:11:33	   Tempo: --       Key: C     Jazziness: 0.3 
+File name: Test5.mid      Created: 26/8/2017  19:45:21	   Tempo: --       Key: C     Jazziness: 0.3 
+File name: Test6.mid      Created: 26/8/2017  19:45:25	   Tempo: --       Key: C     Jazziness: 0.3 
+File name: Test7.mid      Created: 31/8/2017  16:0:55      Tempo: 110       Key: C     Jazziness: 0.3
+8 - Lost (also called Test16.mid, so overwritten by the file on the next line)   File name: Test16.mid      Created: 31/8/2017  17:20:12      Tempo: 82       Key: C     Jazziness: 0.3 
+File name: Test16.mid      Created: 31/8/2017  17:20:12      Tempo: 82       Key: C     Jazziness: 0.3
+File name: Test9.mid      Created: 31/8/2017  21:33:5      Tempo: 104       Key: F#     Jazziness: 0.65 
+File name: Test11.mid      Created: 31/8/2017  21:41:18      Tempo: 120       Key: D#     Jazziness: 0.67
+File name: Test12.mid      Created: 31/8/2017  22:40:36      Tempo: 110       Key: A#     Jazziness: 0.44 
+File name: Test13.mid      Created: 31/8/2017  22:48:13      Tempo: 81       Key: C     Jazziness: 0.3 
+File name: Test14.mid      Created: 31/8/2017  22:53:31      Tempo: 105       Key: C     Jazziness: 0.3 
+File name: Test15.mid      Created: 14/9/2017  9:19:10      Tempo: 110       Key: B     Jazziness: 0.8 

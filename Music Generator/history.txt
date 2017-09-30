@@ -1,15 +1,15 @@
-1 - Lost
-2 - Lost
-3 - Lost
-File name: Test4.mid      Created: 26/8/2017  19:11:33	   Tempo: --       Key: C     Jazziness: 0.3 
-File name: Test5.mid      Created: 26/8/2017  19:45:21	   Tempo: --       Key: C     Jazziness: 0.3 
-File name: Test6.mid      Created: 26/8/2017  19:45:25	   Tempo: --       Key: C     Jazziness: 0.3 
-File name: Test7.mid      Created: 31/8/2017  16:0:55      Tempo: 110       Key: C     Jazziness: 0.3
-8 - Lost (also called Test16.mid, so overwritten by the file on the next line)   File name: Test16.mid      Created: 31/8/2017  17:20:12      Tempo: 82       Key: C     Jazziness: 0.3 
-File name: Test16.mid      Created: 31/8/2017  17:20:12      Tempo: 82       Key: C     Jazziness: 0.3
-File name: Test9.mid      Created: 31/8/2017  21:33:5      Tempo: 104       Key: F#     Jazziness: 0.65 
-File name: Test11.mid      Created: 31/8/2017  21:41:18      Tempo: 120       Key: D#     Jazziness: 0.67
-File name: Test12.mid      Created: 31/8/2017  22:40:36      Tempo: 110       Key: A#     Jazziness: 0.44 
-File name: Test13.mid      Created: 31/8/2017  22:48:13      Tempo: 81       Key: C     Jazziness: 0.3 
-File name: Test14.mid      Created: 31/8/2017  22:53:31      Tempo: 105       Key: C     Jazziness: 0.3 
-File name: Test15.mid      Created: 14/9/2017  9:19:10      Tempo: 110       Key: B     Jazziness: 0.8 
+File name: Song1.mid      Created: 25/9/2017  20:58:44      Tempo: 81       Key: C     Jazziness: 0.314 
+File name: Song2.mid      Created: 25/9/2017  20:59:37      Tempo: 106       Key: C     Jazziness: 0.6 
+File name: Song3.mid      Created: 25/9/2017  21:1:14      Tempo: 116       Key: C     Jazziness: 0.55 
+File name: Song4.mid      Created: 25/9/2017  21:2:52      Tempo: 86       Key: G     Jazziness: 0.8 
+File name: Song5.mid      Created: 25/9/2017  21:4:26      Tempo: 93       Key: A     Jazziness: 0.3 
+File name: Song6.mid      Created: 25/9/2017  21:20:20      Tempo: 118       Key: G#     Jazziness: 0.65 
+File name: Song7.mid      Created: 27/9/2017  21:12:4      Tempo: 113       Key: C     Jazziness: 0.3 
+File name: Song8.mid      Created: 27/9/2017  21:56:5      Tempo: 98       Key: C     Jazziness: 0.3 
+File name: Song9.mid      Created: 27/9/2017  21:57:2      Tempo: 90       Key: C     Jazziness: 0.3 
+File name: Song10.mid      Created: 27/9/2017  21:59:22      Tempo: 100       Key: C     Jazziness: 0.45 
+File name: Song11.mid      Created: 27/9/2017  22:0:33      Tempo: 118       Key: G#     Jazziness: 0.64 
+File name: Song12.mid      Created: 27/9/2017  22:1:57      Tempo: 106       Key: E     Jazziness: 0.7 
+File name: Song13.mid      Created: 27/09/2017  22:05:50      Tempo: 106       Key: D#     Jazziness: 0.67 
+File name: Song14.mid      Created: 27/09/2017  22:14:16      Tempo: 106       Key: F#     Jazziness: 0.76 
+File name: Song15.mid      Created: 28/09/2017  10:08:51      Tempo: 120       Key: C     Jazziness: 0.45 
